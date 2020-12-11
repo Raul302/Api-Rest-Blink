@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReferencesTable extends Migration
+class CreateReferenceAddressesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,15 @@ class CreateReferencesTable extends Migration
      */
     public function up()
     {
-        Schema::create('references', function (Blueprint $table) {
+        Schema::create('reference_addresses', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('type_ref');
-            $table->string('name_ref')->nullable(true);
-            $table->string('father_lastname')->nullable(true);;
-            $table->string('mother_lastname')->nullable(true);;
-            $table->string('email')->nullable(true);
-            $table->string('phone')->nullable(true);
+            $table->integer('id_reference');
+            $table->string('typeAddress')->nullable(true);
             $table->string('city')->nullable(true);
             $table->string('state')->nullable(true);
+            $table->string('street')->nullable(true);
+            $table->string('number')->nullable(true);
+            $table->string('cp')->nullable(true);
             $table->timestamps();
         });
     }
@@ -35,6 +33,6 @@ class CreateReferencesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('references');
+        Schema::dropIfExists('reference_addresses');
     }
 }

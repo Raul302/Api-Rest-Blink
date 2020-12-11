@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProgramContactsTable extends Migration
+class CreateReferenceEmailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateProgramContactsTable extends Migration
      */
     public function up()
     {
-        Schema::create('program_contacts', function (Blueprint $table) {
+        Schema::create('reference_emails', function (Blueprint $table) {
             $table->id();
+            $table->integer('id_reference');
+            $table->string('typeEmail')->nullable(true);
+            $table->string('email')->nullable(true);
             $table->timestamps();
-            $table->integer('id_contact');
-            $table->string('id_program');
-            $table->year('year');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateProgramContactsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('program_contacts');
+        Schema::dropIfExists('reference_emails');
     }
 }

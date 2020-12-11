@@ -24,7 +24,7 @@ Route::post('register', [RegisterController::class, 'register']);
 Route::post('login', [RegisterController::class, 'login']);
 
 // Usuarios
-Route::get('users', [UserController::class, 'index']);
+Route::post('users', [UserController::class, 'index']);
 Route::post('users/update', [UserController::class, 'update']);
 Route::post('users/delete', [UserController::class, 'delete']);
 
@@ -32,8 +32,10 @@ Route::post('users/delete', [UserController::class, 'delete']);
 Route::get('contacts',[ContactController::class,'index']);
 Route::get('contacts/{id}',[ContactController::class,'show']);
 Route::post('contacts',[ContactController::class,'save']);
+
 Route::post('contacts/{id}',[ContactController::class,'delete']);
-Route::get('contacts',[ContactController::class,'index']);
+
+Route::post('contact/update',[ContactController::class,'update']);
 
 // Referencias
 Route::get('references',[ReferencesController::class,'index']);
@@ -41,6 +43,9 @@ Route::get('references/{id}',[ReferencesController::class,'show']);
 Route::post('references',[ReferencesController::class,'save']);
 Route::post('references/{id}',[ReferencesController::class,'delete']);
 Route::get('references',[ReferencesController::class,'index']);
+Route::post('reference/update',[ReferencesController::class,'update']);
+
+Route::post('references/show/refcontact',[ReferencesController::class,'cxref']);
 
 //SearchController
 Route::post('defaultSelectBio',[SearchController::class,'defaultSelectBio']);

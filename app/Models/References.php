@@ -18,4 +18,14 @@ class References extends Model
         'email',
         'phone'
     ];
+    
+     public function reference_address (){
+             return $this->hasMany('App\Models\reference_address','id_reference', 'id');
+     }
+      public function reference_emails (){
+             return $this->hasMany('App\Models\reference_email','id_reference', 'id');
+      }
+              public function reference_phones (){
+             return $this->hasMany('App\Models\reference_phone','id_reference', 'id');
+     }
 }

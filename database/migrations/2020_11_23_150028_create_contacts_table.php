@@ -20,8 +20,8 @@ class CreateContactsTable extends Migration
             $table->string('mother_lastname')->nullable(true);
             $table->date('birthday')->nullable(true);
             $table->string('schoool')->nullable(true);
-            $table->string('email')->nullable(true);
-            $table->string('phone')->nullable(true);
+            $table->string('grade')->nullable(true);
+            $table->string('cicly')->nullable(true);
             $table->string('state')->nullable(true);
             $table->string('city')->nullable(true);
             $table->timestamps();
